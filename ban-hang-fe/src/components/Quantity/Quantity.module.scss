@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .label {
+    font-size: 14px;
+    color: var(--text-color);
+  }
+
+  .quantity {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 40px;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .icon {
+    padding: 0;
+    min-width: 40px;
+    height: 100%;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  .value {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 48px;
+    height: 100%;
+
+    border-left: 1px solid #f0f0f0;
+    border-right: 1px solid #f0f0f0;
+
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,12 @@
+.card {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+
+  .card-item {
+    width: 100%;
+    max-width: 400px;
+    min-height: 200px;
+  }
+}

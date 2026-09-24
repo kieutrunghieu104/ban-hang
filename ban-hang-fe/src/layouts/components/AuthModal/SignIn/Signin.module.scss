@@ -1,0 +1,9 @@
+.auth-option {
+  display: flex;
+  align-items: center;
+}
+
+:global(.ant-checkbox),
+:global(.ant-checkbox-label) {
+  transform: translateY(50%);
+}
