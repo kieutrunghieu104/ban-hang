@@ -2,7 +2,7 @@ import express from "express";
 import env from "./config/env.js";
 import connectDB from "./config/db.js";
 import app from "./app.js";
-
+// remove comment env in file .gitignore
 const startServer = async () => {
   try {
     await connectDB();

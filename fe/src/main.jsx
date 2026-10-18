@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "~/shared/styles/GlobalStyles.scss";
-
+// remove comment env in file .gitignore
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
