@@ -2,8 +2,8 @@
 node_modules/
 
 # Environment variables and secrets
-# .env.development
-# .env.production
+.env.development
+.env.production
 
 # Logs
 logs/
