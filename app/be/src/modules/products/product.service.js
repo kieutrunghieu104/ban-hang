@@ -49,9 +49,16 @@ const updateProductService = async (id, data) => {
   return result.save();
 }
 
+const deleteProductService = async (id) => {
+  const result = await getProductOrThrow(id);
+  await result.deleteOne();
+  return result;
+}
+
 export {
   getAllProductsService,
   getProductByIdService,
   createProductService,
   updateProductService,
+  deleteProductService,
 };

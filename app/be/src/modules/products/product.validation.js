@@ -1,8 +1,10 @@
-import { trim, z } from "zod";
+import { z } from "zod";
 
-const objectIdSchema = z
-  .string("ID phải là chuỗi ký tự")
-  .regex(/^[0-9a-fA-F]{24}$/, "ID sản phẩm không hợp lệ");
+const productIdParamsSchema = z.object({
+  id: z
+    .string("ID phải là chuỗi ký tự")
+    .regex(/^[0-9a-fA-F]{24}$/, "ID sản phẩm không hợp lệ")
+});
 const productFieldsSchema = {
   name: z
     .string("Name sản phẩm phải là chuỗi ký tự")
@@ -20,7 +22,7 @@ const productFieldsSchema = {
   price: z
     .number({ error: "Price phải là số" })
     .int("Price phải là số nguyên")
-    .min(0, "Name phải lớn hơn hoặc bằng 0"),
+    .min(0, "Price phải lớn hơn hoặc bằng 0"),
   countInStock: z
     .number({ error: "countInStock phải là số" })
     .int("countInStock phải là số nguyên")
@@ -68,9 +70,7 @@ const getAllProductsSchema = z.object({
 });
 
 const getProductIdSchema = z.object({
-  params: z.object({
-    id: objectIdSchema,
-  })
+  params: productIdParamsSchema,
 });
 
 const createProductSchema = z.object({
@@ -86,9 +86,7 @@ const createProductSchema = z.object({
 });
 
 const updateProductSchema = z.object({
-  params: z.object({
-    id: objectIdSchema,
-  }),
+  params: productIdParamsSchema,
   body: z.object({
     name: productFieldsSchema.name.optional(),
     type: productFieldsSchema.type.optional(),
@@ -102,9 +100,14 @@ const updateProductSchema = z.object({
   })
 });
 
+const deleteProductSchema = z.object({
+  params: productIdParamsSchema,
+});
+
 export {
   getAllProductsSchema,
   getProductIdSchema,
   createProductSchema,
   updateProductSchema,
+  deleteProductSchema,
 }
